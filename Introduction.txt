@@ -3,3 +3,16 @@
 
 * Your first Docker project
 ---------------------------
+Containerization using Docker ---> Is quickly becoming the standard for software development projects.
+
+Streamline how we build, share, and run modern applications.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* What you should know
+----------------------
+. Have a high-level understanding of containerization
+
+. C
+
