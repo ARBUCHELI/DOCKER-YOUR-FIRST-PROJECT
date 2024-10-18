@@ -1,0 +1,115 @@
+# 1. The Project
+----------------
+
+* Application using Docker
+--------------------------
+	The project that you'll work with throughout this course is the Big Star Collectibles website prototype. 
+
+		. Big Star Collectibles sells high quality, exclusive and unique items, and it's containerizing its existing website. 
+
+		. You will help the company modernize its DevOps processes to reduce errors and improve productivity. 
+
+		. By using Docker to containerize its application, Big Star Collectibles can enable developers to configure their local development environment quickly so that they can 
+		get started working on the project. 
+
+		The company also wants to ensure the deployments to every environment are streamlined and efficient. Until now, Big Star Collectibles has relied on outdated practices to 		manage and deploy its application.
+
+		The development team includes both full-time employees and contractors. 
+
+		While the employees all have the same basic setup, contractors work on their own machines with different configurations. They have faced issues with developers taking a long 		time to get their local development environment set up, and it has caused a lot of confusion. 
+
+
+	THE BENEFITS OF DOCKER
+
+		. Able to download a Docker image.
+
+		. No need to install everything you need to run your app locally.
+
+		. Improves the time it takes developers to get started on a new project. 
+
+	
+	Docker makes developers happy by providing tooling to automate the manual and error-prone tasks that cause headaches. 
+
+
+	Big Star Collectibles utilizes Python and Flask for its website. 
+
+
+	USING PYTHON AND FLASK
+
+		. Flask is a web application framework written in Python. It is lightweight and allows you to spin up a web application quickly using only a single Python file. 
+
+	You do not need to know Python or Flask to follow along with the exercises in this course. 
+
+	You will learn how to write Docker instructions for our application, but these skills are transferable to any programming language or framework. 
+
+
+	THE FINAL PROJECT
+		. Website files
+
+		. Dockerfile
+
+		. Docker image
+
+		. Private image repository
+
+		. Docker command cheat sheet
+
+Our final project will include our website files, including the code and assets, one Docker file containing the commands used to create an image, one Docker image including the software 
+and tools necessary to run the website application, an image repository to store our image in a secure environment, and I have also included a Docker command cheat sheet in your Exercise Files so that you can copy and paste the commands that we cover throughout this course for your convenience. And that's it. 
+
+That's all we need to run our application using Docker. Let's get started.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
