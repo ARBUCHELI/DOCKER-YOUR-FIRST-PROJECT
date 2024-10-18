@@ -14,5 +14,13 @@ Streamline how we build, share, and run modern applications.
 ----------------------
 . Have a high-level understanding of containerization
 
-. C
+. Comfortable navigating a shell
+
+https://guide.bash.academy
+
+
+
+
+
+
 
