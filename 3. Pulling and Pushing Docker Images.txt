@@ -1,0 +1,73 @@
+# 3. Pulling and Pushing Docker Images
+--------------------------------------
+
+* Searching for images in Docker Hub
+------------------------------------
+	. HOW DO WE KNOW WHICH IMAGE TO USE?
+
+		* docker search python (THIS WILL RETURN A LIST OF AVAILABLE PYTHON IMAGES, ALONG WITH WITH THEIR NAMES AND DESCRIPTIONS)
+
+
+	. YOU CAN FILTER THE SEARCH TO SHOW ONLY OFFICIAL OPTIONS
+
+		$ docker search --filter is-official=true python
+
+
+	. YOU CAN ALSO FILTER BY MINIMUM NUMBER OF STARS
+
+		$ docker search --filter stars=100 python
+
+
+	. THE AUTOMATED COLUM TELLS US IF YOU CAN BUILD THE IMAGE AUTOMATICALLY USING PLATFORMS SUCH AS GITHUB
+
+		$ docker search --filter is-automated=true python (DEPRECATED)
+
+
+	. IF YOU ARE USING MORE THAN ONE FILTER, YOU NEED TO SPECIFY THE FILTER OPTION FOR EACH INDIVIDUAL ARGUMENT
+
+		$ docker search --filter is-official=true --filter stars=10 --filter is-automated=false python
+
+
+	. YOU CAN LIMIT THE NUMBER OF SEARCH RESULTS
+
+		$ docker search --limit 4 python
+
+
+	. THE --no-trunc OPTION WILL RETURN THE FULL OUTPUT OF THE SEARCH RESULTS WITHOUT TRUNCATING ANYTHING. 
+
+	USEFUL FOR READING THE FULL IMAGE DESCRIPTIONS
+
+		$ docker search --no-trunc python
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
