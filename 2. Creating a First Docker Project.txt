@@ -1,0 +1,29 @@
+# 2. Creating a First Docker Project
+------------------------------------
+
+* Writing a Dockerfile
+----------------------
+
+* dockerfile
+------------
+# Use an official Python runtime as the base image (THIS COMMAND TELLS DOCKER WHAT BASE IMAGE TO USE) 
+FROM python:3.12-rc-bookworm
+
+# Set the working directory in the container to /app (DEFAULT DIRECTORY FOR A FLASK APP)
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app (COPY THE CURRENT DIRECTORY CONTENTS INTO .app)
+COPY . /app
+
+# Install the required packages (INTALL THE PACKAGES NEEDED TO RUN OUR APP)
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set the environment variable for Flask 
+ENV FLASK_APP=app.py
+
+# Run the command to start the Flask application 
+CMD ["flask", "run", "--host=0.0.0.0"]
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
