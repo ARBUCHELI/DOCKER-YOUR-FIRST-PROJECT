@@ -27,3 +27,73 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+$ docker bild [OPTIONS] PATH | URL | -
+
+	YOU CAN ALSO USE A URL TO A REPOSITORY, WHICH IS A USEFUL FOR THE CONTINUOUS INTEGRATION PIPELINE
+
+https://docs.docker.com/engine/reference/commandline/build
+
+
+$ docker build -f [dockerfile] . 
+
+	YOU CAN ALSO SPECIFY A DIFFERENT DOCKER FIILE IF IT DOES NOT EXIST IN THE PATH
+
+	TO DO THIS YOU CAN USE THE f FLAG AND THEN THE PATH TO THE DOCKER FILE
+
+	THIS IS A GOOD OPTION TO USE IF YOU HAVE DIFFERENT DOCKER FILES FOR EACH ENVIRONMENT, LIKE QA, STAGGING, OR PRODUCTION
+
+	THIS WILL HELP WITH AUTOMATIC TESTING
+
+
+$ docker build --force-rm=true
+
+	THIS REMOVES ANY INTERMADIATE CONTAINERS
+
+	WHEN YOU BUILD A NEW IMAGE, DOCKER CREATES A TEMPORARY OR INTERMEDIATE CONTAINER FOR EACH INSTRUCTION IN THE DOCKERFILE
+
+
+$ docker build --no-cache .
+
+	YOU CAN USE THIS OPTION TO TELL DOCKER TO SKIP THE CACHE AND REBUILD THE ENTIRE IMAGE
+
+	KEEP IN MIND THAT THIS MAY TAKE A LONG TIME DEPENDING ON THE COMPLEXITY OF YOUR PROJECT
+
+	THE PURPOSE OF THE DOCKER CACHE IS TO SPEED UP SUBSEQUENT IMAGE BUILDS BY REUSING IMAGE LAYERS WHICH IS GREAT IF THOSE LAYERS ARE BUILD SUCCESFULLY
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+	
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
