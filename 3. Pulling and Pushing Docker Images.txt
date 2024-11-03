@@ -65,6 +65,56 @@
 * Working with custom images
 ----------------------------
 
+	. VIEW YOUR LOCAL IMAGES
+
+		$ docker image ls [OPTIONS] [REPOSITORY[:TAG]]
+
+
+	. IF YOU WANT TO SHOW ALL IMAGES
+
+		$ docker image ls --all
+
+
+	. OTHER OPTIONS
+
+		$ docker image ls --no-trunc (The output is not truncated)
+
+		$ docker image ls --quiet (Will return image ids and supress all other columns)
+
+		$ docker image ls --digest (Hash that includes information about the image)
+
+		$ docker image ls --filter reference-python* 
+			(Similar to the filter option but with different options, for example reference allow to isolate images having a certain name or tag)
+
+		$ docker image ls --filter before=python 
+			(To filter images created before another image)
+
+		$ docker image ls --filter since-python
+			(To filter images created after another image)
+
+		$ docker image ls --filter dangling=true (To isolate images that are not used anymore such as intermediate images)
+
+		$ docker image ls --filter label=python* (To filter based on the image label)
+
+	
+		YOU CAN ALSO ADD FORMAT BUT FOR OTHER OPTIONS FOR THE COLUMNS
+
+			$ docker image ls --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}\t{{CreatedSince}}\t{{.CreatedAt}}\t{{.Diges}}"
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+		
+
+		
+		
+	
+
+
+	
 
 
 
