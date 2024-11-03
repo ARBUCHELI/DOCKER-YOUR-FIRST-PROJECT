@@ -40,6 +40,39 @@
 		$ docker search --no-trunc python
 
 
+	. FORMAT THE SEARCH RESULT USING A GO TEMPLATE --> FOR EXAMPLE TO FORMATE IN A TABLE FORMAT, USE \t BETWEEN EACH COLUMN NAME
+
+		$ docker search --format "table {{.Name}}/t{{.IsAutomated}}/t{{.IsOfficial}}/t{{.Description}}/T{{.StarCount}}" python 
+
+
+	. FINALLY YOU CAN COMBINE ALL THE OPTIONS IF YOU NEED IT FOR HAVING A ROBUST SEARCH
+
+		$ docker search --format "table {{.Name}}\t{{.IsOfficial}}\t{{.Description}}\t{{.StarCount}}" --filter is-official=true --filter stars=10 --no-trunc python
+
+
+	. THE LAST STEP IS TO PULL THE IMAGE THAT YOU NEE
+
+		$ docker image pull python
+
+	
+	. YOU CAN DOWNLOAD A SPECIFIC IMAGE (BUT DON'T USE THE LATEST VERSION OF A IMAGE BECAUSE IT CAN LEAD TO ERRORS)
+
+		$ docker image pull python:3.12-rc-bookworm
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Working with custom images
+----------------------------
+
+
+
+
+
+
+ 
+
+
 	
 
 
