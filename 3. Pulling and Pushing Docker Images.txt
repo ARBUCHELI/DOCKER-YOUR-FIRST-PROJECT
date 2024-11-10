@@ -104,6 +104,62 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Tagging and labeling images
+-----------------------------
+
+$ docker image ls (USEFUL COMMAND TO SEE THE LIST OF IMAGES)
+
+		FOR ADDING A TAG
+
+$ docker build -t SOURCE_IMAGE[:TAG] .
+
+
+		IF WE DON'T SPECIFY THE TAG, DOCKER WILL GIVE THE TAG "latest"
+
+$ docker build -t big-star-collectibles .
+
+
+		IT'S A GOOD PRACTICE TO BUILD THE FINAL STABLE IMAGE USING THE LATEST VERSION TAG AND THEN A SECOND IMAGE NAME WITHOUT THE TAG SPECIFIED.  ALSO THE --no-chache OPTION
+		ENSURES THAT THE IMAGES ARE REBUILD
+
+$ docker build --no-cache -t big-star-collectibles:v1 -t big-star-collectibles .
+
+
+		ANOTHER WAY TO GIVE TAGS TO IMAGES, IS USING THE DOCKER TAG COMMAND
+
+$ docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+
+		FOR EXAMPLE FOR GIVING MULTIPLE TAGS
+
+$ docker tag big-star-collectibles:v1 big-star-collectibles:v1-python
+
+
+		WHEN YOU ARE CREATING A NEW VERSION OF AN IMAGE, YOU WANT TO USE THE DOCKER BUILD COMMAND TO REBUILD THE IMAGE WITH A NEW IMAGE ID.
+
+		THIS IS GOOD FOR KEEPING EACH VERSION SEPARATE SO THAT YOU DON'T OVERWRITE ANYTHING.
+
+
+
+		ANOTHER WAY TO KEEP YOUR IMAGES ORGANIZES IS USING THE LABEL INSTRUCTION IN YOUR DOCKERFILE.  WHEN YOU REBUILD YOUR IMAGE, THE LABEL WILL BE ADDED TO THE METADATA.
+
+
+		YOU CAN'T SEARCH BY IMAGES BY TAG, BUT YOU CAN FILTER BY LABEL
+
+
+$ docker image ls --filter label="com.example.vendor"="Big Star Collectibles"
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 
