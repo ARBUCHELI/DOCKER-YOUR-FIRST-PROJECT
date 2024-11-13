@@ -152,6 +152,27 @@ $ docker image ls --filter label="com.example.vendor"="Big Star Collectibles"
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Working with a private image repository
+-----------------------------------------
+	FOR PUSHING TO DOCKER HUB, TAG, AND USE THE NAME OF YOUR REMOTE REPOSITORY
+
+$ docker tag big-star-collectibles shragabuchel1977/big-star-collectibles-repo:big-star-collectibles
+
+$ docker push shragabuchel1977/big-star-collectibles-repo:big-star-collectibles
+
+
+	TO PULL THE IMAGE FROM DOCKER HUB
+
+$ docker pull shragabuchel1977/big-star-collectibles-repo:big-star-collectibles
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+ 
+
 
 
 
