@@ -168,6 +168,28 @@ $ docker pull shragabuchel1977/big-star-collectibles-repo:big-star-collectibles
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Inspecting images
+-------------------
+$ docker image ls
+
+$ docker image inspect <ID>
+
+	REPOTAGS: ALL TAGS ASSOCIATED WITH THE IMAGE
+
+	CREATED: UTC FORMAT
+
+	CONFIG: ENVIRONMENT SETTINGS
+
+	YOU CAN RETURN SPECIFIC SECTIONS AND FORMAT THEM USING JSON
+
+$ docker image inspect --format='{{json .Config.Labels}}' big-star-collectibles
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Removing images
+-----------------
+
 
 
 
