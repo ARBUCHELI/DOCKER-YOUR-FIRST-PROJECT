@@ -197,6 +197,30 @@ $ docker image ls
 $ docker rmi -f big-star-collectibles
 
 
+	TO REMOVE ALL TAGS ASSOCIATE WITH AN IMAGE PASS THE IMAGE ID
+
+$ docker rmi -f 524db69b4c8e
+
+
+	YOU CAN ALSO REMOVE IMAGES BY DIGEST
+
+$ docker images --digest
+
+$ docker rmi -f <image-name>@<digest>
+
+$ docker rmi -f pytho@sha256:2e37 ...
+
+
+	YOU CAN ALSO REMOVE IMAGES USING VS-CODE AND DOCKER HUB
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 
