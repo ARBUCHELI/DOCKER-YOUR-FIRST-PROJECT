@@ -1,0 +1,52 @@
+# 4. Running Docker Containers
+------------------------------
+
+* Running a container
+---------------------
+
+	FOR STARTING ANY STOPPER CONTAINER
+
+$ docker start big-star-collectibles
+
+	THEN YOU RUN THE CONTAINER
+
+$ docker run [OPTIONS] IMAGE[:TAG] [COMMAND] [ARG...]
+
+	THERE ARE MULTIPLE OPTIONS THAT YOU CAN USE WITH THE DOCKER RUN COMMAND
+
+$ docker run -it -d -p 5000:5000 -v ${PWD}:/app/code big-star-collectibles
+
+. it : Specifies that the container should run in interactive mode
+
+. d : Runs the container in detached mode (the container will run in the background and teh command prompt will return to the host system)
+
+. p : maps a port in the host system, to a port inside of the container (this allows to access the application inside the container from the host system)
+
+. v : mounts a volume inside the container -  syntax -> host directory:directory inside the container (allows to persist data across container restarts and share data between the host
+system and the container)
+
+
+	TO STOP THE CONTAINER
+
+$ docker stop gallant_joliot (gracefully terminates a process, rather than killing it immediately)
+
+$ docker kill gallant_joliot (sends the sig kill signal, which cannot be blocked or handled, You should be careful when using the kill command, as the killed child process doesn't notify
+its parent that it received the kill signal, which can cause errors)
+
+$ docker start big-star-collectibles
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
