@@ -38,6 +38,111 @@ $ docker start big-star-collectibles
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Listing containers
+--------------------
+$ docker ps
+
+
+	TO DISPLAY ALL CONTAINERS, INCLUDING STOPPED CONTAINERS
+
+$ docker ps -a
+
+
+	TO SHOW A NUMBER OF THE LAST CREATED CONTAINERS, INCLUDING ALL STATES
+
+$ docker ps -n 1
+
+
+	TO DISPLAY ONLY THE CONTAINER IDS
+
+$ docker ps -q
+
+
+	TO DISPLAY THE TOTAL FILE SIZE OF ALL CONTAINERS
+
+$ docker ps -s
+
+
+	TO SHOW THE LAST CREATED CONTAINER
+
+
+$ docker ps -l
+
+
+	TO SHOW THE FULL OUTPUT
+
+$ docker ps --no-trunc
+
+
+	YOU CAN ALSO USE THE FILTER OPTION TO SEARCH FOR SPECIFIC CONTAINERS
+
+$ docker ps --filter label="com.example.vendor"="Big Star Collectibles"
+
+
+	IT'S ALSO VERY USEFUL TO SEARCH FOR CONTAINERS BASED ON THEIR EXIT CODE
+
+$ docker ps -a --filter 'exited=137' --> (137 means that the container was killed)
+
+
+	IS ALSO USEFUL TO FILTER BASED ON THE IMAGE OF A CONTAINER OR A DESCENDANT OF IT
+
+$ docker ps --filter ancestor=big-star-collectibles:v2
+
+
+	IT'S ALSO USEFUL TO FORMAT THE SEARCH RESULTS USING JSON
+
+$ docker ps --filter label="com.example.vendor"="Big Star Collectibles" --format json
+
+
+	YOU CAN ALSO FORMAT AS A TABLE, TO SHOW ONLY THE INFORMATION THAT YOU NEED
+
+$ docker ps --filter label="com.example.vendor"="Big Star Collectibles" --format "table {{.ID}}\t{{.Names}}"
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
