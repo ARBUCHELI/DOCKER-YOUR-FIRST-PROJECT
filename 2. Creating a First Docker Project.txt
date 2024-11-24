@@ -27,7 +27,7 @@ CMD ["flask", "run", "--host=0.0.0.0"]
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-$ docker bild [OPTIONS] PATH | URL | -
+$ docker build [OPTIONS] PATH | URL | -
 
 	YOU CAN ALSO USE A URL TO A REPOSITORY, WHICH IS A USEFUL FOR THE CONTINUOUS INTEGRATION PIPELINE
 
