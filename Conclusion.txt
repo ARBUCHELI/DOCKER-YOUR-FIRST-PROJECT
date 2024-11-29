@@ -1,0 +1,24 @@
+# Conclusion
+------------
+
+* Summary
+---------
+
+. We containerized a simple website
+
+. We created a custom image, included everything we needed, including the operating system, the required runtime libraries
+
+. We ran containers based on our custom image to easily create the runtime environment
+
+
+* Next Steps
+------------
+
+. Learn Docker Compose
+
+. Docker Compose is a tool that helps you define and share multi-container applications
+
+	WITH COMPOSE YOU CAN CREATE A YAML FILE TO DEFINE THE SERVICES, AND WITH A SINGLE COMMAND, YOU CAN SPIN EVERYTHING UP OR TEAR IT ALL DOWN
+
+. Watch Learning Docker Compose with Nicole Rifkin
+
