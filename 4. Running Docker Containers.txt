@@ -474,6 +474,156 @@ postfix/postlog: starting the Postfix mail system
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Working with volumes and mounts
+---------------------------------
+WHEN USING DOCKER YOU MIGHT COME ACROSS TWO CONCEPTS
+
+	. Volume
+
+	. Bind mount
+
+BOTH ARE USED TO SHARE DATA BETWEEN THE HOST MACHINE AND THE CONTAINER
+
+
+	CREATE A VOLUME
+
+$ docker volume create big-star-collectibles-vol
+
+
+	DOCKER VOLUMES ARE A TYPE OF DATA STORAGE PROVIDED BY DOCKER. A VOLUME IS A DIRECTORY IN THE HOST MACHINE THAT IS ACCESSIBLE TO A CONTAINER.
+
+	WHEN YOU USE A DOCKER VOLUME, THE DATA INSIDE OF IT IS NOT STORED IN THE CONTAINER'S FILE SYSTEM, BUT IN THE HOST MACHINE'S FILE SYSTEM.
+
+	THIS MEANS THAT DATA IN A VOLUME PERSISTS EVEN IF THE CONTAINER IS DELETED OR RECREATED.
+
+
+	LIST DOCKER VOLUMES
+
+$ docker volume ls
+
+
+	TO INSPECT A VOLUME
+
+$ docker volume inspect gpa-backend_pgadmin_data
+
+>>
+
+[
+    {
+        "CreatedAt": "2024-11-11T17:38:49Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.project": "gpa-backend",
+            "com.docker.compose.version": "2.27.1",
+            "com.docker.compose.volume": "pgadmin_data"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/gpa-backend_pgadmin_data/_data",
+        "Name": "gpa-backend_pgadmin_data",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+
+
+	MOUNT POINT --> PATH INSIDE THE CONTAINER WHERE THE DATA FROM THE VOLUME IS LOCATED
+
+
+	TO ATTACH A VOLUME TO A CONTAINER, USE THE V OPTION FOR VOLUME AND THEN SPECIFY THE HOST PATH, FOLLOWED BY THE CONTAINER PATH
+
+
+	VOLUMES ARE A GOOD OPTION TO STORE DATA ACROSS CONTAINERS, FOR EXAMPLE TO STORE DATA FROM A DATABASE OUTSIDE THE CONTAINER, THIS WAY YOU CAN STOP OR DESTROY THE CONTAINER, WITHOUT
+	USING ANYTHING.
+
+
+	YOU CAN ALSO SPECIFY YOUR VOLUME IN YOUR DOCKER FILE:
+
+# Use an official Python runtime as the base image
+FROM python:3.12-rc-bookworm
+
+#VOLUME /app/data
+
+# Set the working directory in the container to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install the required packages
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set the environment variable for Flask
+ENV FLASK_APP=app.py
+
+# Add labels to the image
+# LABEL Formatting Option 1
+LABEL "com.example.vendor"="Big Star Collectibles"
+LABEL version="1.0"
+LABEL description="The Big Star Collectibles Website \
+using the Python base image."
+
+# LABEL Formatting Option 2
+# LABEL "com.example.vendor"="Big Star Collectibles" version="1.0" description="The Big Star Collectibles Website \
+# using the Python base image."
+
+# LABEL Formatting Option 3
+# LABEL "com.example.vendor"="Big Star Collectibles" \
+# version="1.0" \
+# description="The Big Star Collectibles Website \
+# using the Python base image."
+
+# Run the command to start the Flask application
+CMD ["flask", "run", "--host=0.0.0.0"]
+
+	THE PROBLEM WITH THE OPTION OF CONFIGURING THE VOLUME IN THE DOCKER FILE IS THAT DOCKER WILL CREATE THE NAME FOR THE VOLUME
+
+
+	TO REMOVE A VOLUME (THIS WILL ONLY WORK IF THE VOLUME IS NOT IN USE)
+
+$ docker volume rm big-star-collectibles-vol
+
+
+	YOU CAN ALSO USE THE -v FLAG TO SPECIFY A BIND MOUNT (THE DIFFERENCE WITH VOLUMES IS THAT THE DATA IS NOT STORED OUTSIDE THE CONTAINER). IF YOU REMOVE THE CONTAINER, THE DATA IN
+	THE BIND MOUNT WILL BE LOST
+
+	BIND MOUNTS ARE VERY USEFUL DURING DEVELOPMENT OR TESTING
+
+$ docker run -it -d -p 5000:5000 -v "$(PWD)/test"/target:/app/test big-star-collectibles:v2
+
+	THERE ARE TWO WAYS TO SPECIFY A MOUNT, USING THE -v or --mount flags
+
+	EXPERTS SUGGEST TO USE THE -v FLAG, BECAUSE IF YOU SPECIFY A DIRECTORY THAT DOESN'T EXIST ON THE HOST, THE -v FLAG WILL CREATE IT, BUT THE MOUNT FLAG WILL RETURN AN ERROR
+
+$ docker run -it -d -p 5000:5000 -mount type-bind, source="$(PWD)/test"/target:/app/test big-star-collectibles:v2
+
+	TO VERIFY THAT THE BIND MOUNT IS WORKING
+
+$ docker ps --> TO GET THE CONTAINER ID
+
+$ docker exec -it c95893073eb4 sh (sh WILL OPEN A SHELL INSIDE THE CONTAINER)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
