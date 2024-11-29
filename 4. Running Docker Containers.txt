@@ -604,6 +604,148 @@ $ docker exec -it c95893073eb4 sh (sh WILL OPEN A SHELL INSIDE THE CONTAINER)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Reviewing your daily workflow
+-------------------------------
+WHEN YOU ARE WORKING WITH DOCKER YOU WANT TO MAKE SURE THAT YOU KEEP YOUR RESOURCES CLEAN, BY REMOVING UNUSED OBJECTS SUCH AS IMAGES, CONTAINERS, AND VOLUMES AFTER YOU'RE FINISHED WITH YOUR
+WORK EVERY DAY
+
+
+	docker image prune WILL CLEAN UP ANY DANGLING IMAGES, MEANING IMAGES THAT ARE NOT TAGGED, AND ARE NOT REFERENCED BY ANY CONTAINER
+
+$ docker image prune
+
+>>
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] y    
+Deleted Images:
+deleted: sha256:42443066125c763e699c267c8bd5df9ec1d3056dc78f4c8664c0115bc86e8f26
+
+Total reclaimed space: 0B
+
+
+	TO REMOVE ALL IMAGES THAT ARE NOT USED BY EXISTING CONTAINERS
+
+$ docker image prune -a -f
+
+>> 
+Deleted Images:
+untagged: big-star-collectibles:latest
+deleted: sha256:28827c0a9dc12b7e23535fc3c645dbef2db9745f9de5974fc08e8d478af53a23
+untagged: shragabuchel1977/big-star-collectibles-repo:big-star-collectibles
+untagged: shragabuchel1977/big-star-collectibles-repo@sha256:f32f1e8f3c5e31312ce35abd4961daa34367288d9ea5051120add29245e1e3d4
+deleted: sha256:a64960e84cac0c6e61e8dede4f98a2c11c26805cb9eee77bf2b43d436267f3e7
+
+Total reclaimed space: 0B
+
+
+	YOU CAN ALSO USE FILTERS TO DELETE IMAGES
+
+$ docker image prune -a -f --filter label="com.example.vendor"="Big Star Collectibles"
+
+
+	YOU CAN ALSO DELETE CONTAINERS
+
+$ docker container prune
+
+>>
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+0d564d0ecb810b733a51afec7d4990958612cd456a9a5d2d9dd617ed650c089e
+f9e8d55b3a6ba05acea8f5fee0d97c13743e6ab5f661413eede50a40372dad0c
+c3f3d26acaed98c6702f21661fe1c3289b0c2b3a795af27e3b4cf2f5bbe8d200
+0a85fa2afb6f7d158ef30a3674481706ea05605531d919dc5a9c386aa47218f7
+9b3de3159667e2af07de26481c50a46fc7bfcc07edcafb28165f3c922867120c
+
+Total reclaimed space: 415kB
+
+
+	PRUNING VOLUMES WORK IN A SIMILAR WAY, BUT YOU CAN'T FILTER BY THE TIMESTAMP, ONLY BY LABEL
+
+$ docker volume prune -f --filter label="comp.example.vendor"="Big Star Collectibles"
+
+
+	FOR PRUNNING ALL UNUSED IMAGES, CONTAINERS, AND NETWORKS
+
+$ docker system prune --volumes -f
+
+>>
+Deleted Images:
+deleted: sha256:c4bf1eca6e5558b91d27e1794dff4a1b8dae0cc25fb5cd1d5941c04da4d15d55
+
+Deleted build cache objects:
+9e39cob1njw10ihmc1dabaf7k
+jns935w4hoq0fvyb8334cecwj
+jwp4o9lmhd61klrqpewdjqdck
+4htysq16idbus0yq2g44mc2m8
+v9p6gtugqr2o0ubibpirx002c
+z2zyej2b98tfzyrhsfvcfjar0
+hykcge4vko76edl9lggye7gti
+ou21f4x061rt4ctwopvfhq7k0
+rayrd5ra0uy8thsygix14saqv
+dg0dz4nvsnef4lrjar7pxu9su
+22pxubpnhfni0gibrgnh3jisc
+imk8a2dtavixvhamp6a3qhjtj
+ohh1e1b1s0havmzi6c92gdbx0
+0c2cw363a3nv339nsaldsvtuo
+wpmgy45dk0lapt8hj3ebhuif2
+sx2h70ipcl9la1a1faft37hgk
+ek3l32tc16yohz797azipqjmw
+uro46j47md5dmv95prlpiwh63
+zb6ml4ppjmg05rlnzit75aadd
+joep4fwuv26qseqdu2xsppxuo
+lcokdbxudmn69k4fzro15ju8k
+va2y2xhh7rtyov3wjmu9tisnv
+x21kysmq1bui94cpsy2v5ilkw
+mfthz0h68mui3lnwiqcjaqx5t
+n8l5beiov8eararsn44s3pxv8
+vr7padt1lnxdcpfwf9a1p72od
+te0swpnehkdi9ubp9etlnz8rt
+zr6t0zs19sln97r931ovt8h1j
+av42whoqkmrfphcd1vyf6phg9
+910qwnz60f2gp7j9rmij4r2u0
+umf01vsiua5avc8022x2f59e8
+4g0hve0z3m1sbvuejbyxeqdgt
+xno6p1hc58ucif8r85ansgf6p
+l6kx3a6m0jpvxae30vvv3j47c
+2yn4hphk9o8rybp7ur334vsn6
+f1rdb66192tzliqs2js7zs56m
+e0y5flqh9aw6djxyaphlpybiq
+97irozy7mwg04rfwiklct7zfg
+ci34izaox2iur4vtyvnvazvkn
+ihn1e2j5wmilqaam96cs2jvzs
+qku44p7ufjrymnkykt2726j7g
+yyvqgh3hhu349p335zplj9gzo
+hbrkfyygwldqnwg8mjckuk4gv
+sn11s03j9bke01383k59agrzs
+ozk8q4910olep8ymvw8bszeph
+st642yjdz1yeesnqblpfkzeer
+zdmekoelpipu6j0n0ojz8jl9f
+gzpq0kpt93kmsuv0hlz2krr2s
+h0t4yapkfuy9xh9zwdzfqf6ut
+ebpp2x3ln7h2o78y2ummp9bdi
+
+Total reclaimed space: 351MB
+
+
+	IN THE PREVIOUS OPTION, VOLUMES ARE NOT INCLUDED BY DEFAULT, YOU NEED TO INCLUDE THE -v FLAG
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
