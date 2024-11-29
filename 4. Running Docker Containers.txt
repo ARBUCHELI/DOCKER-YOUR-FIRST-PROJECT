@@ -418,6 +418,125 @@ $ docker inspect --format='{{json .Config}}' pgadmin_container
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Reviewing container log files
+-------------------------------
+FOR GETTING DETAILED INFORMATION ABOUT THE BEHAVIOR OF THE APPLICATION
+
+$ docker logs [OPTIONS] CONTAINER
+
+
+	FOR SETTING THE NUMBER OF LINES, USE THE TAIL OPTION
+
+$ docker logs --tail 1000 -f pgadmin_container
+
+
+	THE DETAILS OPTION SHOWS EXTRA DETAILS PROVIDED TO LOGS
+
+$ docker logs --tail 1000 -f --details pgadmin_container
+
+
+	TO SHOW LOGS SINCE THE SPECIFIED TIMESTAMP
+
+$ docker logs --tail 1000 -f --since 2024-01-10T01:00:00Z pgadmin_container
+
+
+postfix/postlog: starting the Postfix mail system
+[2024-11-19 09:53:52 +0000] [1] [INFO] Starting gunicorn 22.0.0        
+[2024-11-19 09:53:52 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+[2024-11-19 09:53:52 +0000] [1] [INFO] Using worker: gthread
+[2024-11-19 09:53:52 +0000] [89] [INFO] Booting worker with pid: 89    
+[2024-11-19 15:34:30 +0000] [1] [INFO] Handling signal: term
+[2024-11-19 15:34:30 +0000] [89] [INFO] Worker exiting (pid: 89)
+postfix/postlog: starting the Postfix mail system
+[2024-11-20 05:36:56 +0000] [1] [INFO] Starting gunicorn 22.0.0
+[2024-11-20 05:36:56 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+[2024-11-20 05:36:56 +0000] [1] [INFO] Using worker: gthread
+[2024-11-20 05:36:57 +0000] [83] [INFO] Booting worker with pid: 83
+postfix/postlog: starting the Postfix mail system
+[2024-11-20 11:07:29 +0000] [1] [INFO] Starting gunicorn 22.0.0
+[2024-11-20 11:07:29 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+[2024-11-20 11:07:29 +0000] [1] [INFO] Using worker: gthread
+[2024-11-20 11:07:29 +0000] [82] [INFO] Booting worker with pid: 82
+[2024-11-21 15:43:53 +0000] [1] [INFO] Handling signal: term
+[2024-11-21 15:43:54 +0000] [82] [INFO] Worker exiting (pid: 82)
+[2024-11-21 15:43:57 +0000] [1] [INFO] Shutting down: Master
+postfix/postlog: starting the Postfix mail system
+[2024-11-24 11:56:49 +0000] [1] [INFO] Starting gunicorn 22.0.0
+[2024-11-24 11:56:49 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+[2024-11-24 11:56:49 +0000] [1] [INFO] Using worker: gthread
+[2024-11-24 11:56:49 +0000] [82] [INFO] Booting worker with pid: 82
+postfix/postlog: starting the Postfix mail system
+[2024-11-29 09:33:47 +0000] [1] [INFO] Starting gunicorn 22.0.0
+[2024-11-29 09:33:47 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+[2024-11-29 09:33:47 +0000] [1] [INFO] Using worker: gthread
+[2024-11-29 09:33:47 +0000] [82] [INFO] Booting worker with pid: 82
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
